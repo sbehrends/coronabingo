@@ -1,7 +1,14 @@
 import useTranslation from 'next-translate/useTranslation'
 import React, { Fragment, useContext, useEffect, useState } from 'react'
-import { FiRotateCcw, FiSettings, FiSmile, FiVolume2 } from 'react-icons/fi'
+import {
+  FiAward,
+  FiRotateCcw,
+  FiSettings,
+  FiSmile,
+  FiVolume2,
+} from 'react-icons/fi'
 import { Tabs } from 'react-tabs'
+import Awards from '~/components/Awards'
 import BackgroundCells from '~/components/BackgroundCells'
 import Celebrations from '~/components/Celebrations'
 import OptionTab from '~/components/OptionTab'
@@ -63,6 +70,12 @@ export default function Options({ isAdmin, room }: Props) {
               id="sounds"
             ></OptionTab>
             <OptionTab
+              Icon={FiAward}
+              iconBgColor="bg-yellow-300"
+              iconColor="text-yellow-800"
+              id="winners"
+            ></OptionTab>
+            <OptionTab
               Icon={FiRotateCcw}
               iconBgColor="bg-red-300"
               iconColor="text-red-800"
@@ -106,6 +119,14 @@ export default function Options({ isAdmin, room }: Props) {
             onRequestClose={resetCurrentTabIndex}
           >
             <Pato extraSounds={isVisible} room={room} />
+          </OptionTabPanel>
+          <OptionTabPanel
+            contentLabel={t('playerId:winners.title')}
+            id="modal-winners"
+            title={t('playerId:winners.title')}
+            onRequestClose={resetCurrentTabIndex}
+          >
+            <Awards room={room} />
           </OptionTabPanel>
           <OptionTabPanel
             contentLabel={t('playerId:replay.reboot-game')}

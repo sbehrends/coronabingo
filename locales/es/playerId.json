@@ -21,6 +21,9 @@
     "title": "Fondo de las celdas vacías",
     "url": "O bien, pegá el link a una imágen en internet"
   },
+  "winners": {
+    "title": "Premios"
+  },
   "backgrounds": {
     "yellow": "Amarillo",
     "green": "Verde",

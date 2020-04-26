@@ -21,6 +21,9 @@
     "description": "This action will redirect you to the admin so you can update the room information in order to start a new game. You can edit the list of players, change roles and redistribute the boards.",
     "confirm": "Confirm"
   },
+  "winners": {
+    "title": "Awards"
+  },
   "backgrounds": {
     "yellow": "Yellow",
     "green": "Green",

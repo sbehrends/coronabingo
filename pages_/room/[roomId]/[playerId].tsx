@@ -15,12 +15,14 @@ import { BackgroundCellContextProvider } from '~/contexts/BackgroundCellContext'
 import { EasterEggContextProvider } from '~/contexts/EasterEggContext'
 import usePlayer from '~/hooks/usePlayer'
 import useRoom from '~/hooks/useRoom'
+import useRoomPlayers from '~/hooks/useRoomPlayers'
 import roomApi from '~/models/room'
 import scrollToTop from '~/utils/scrollToTop'
 
 export default function Jugar() {
   const { room } = useRoom()
   const { player, updatePlayer } = usePlayer()
+  const { players } = useRoomPlayers()
   const { t } = useTranslation()
 
   useEffect(scrollToTop, [])
@@ -86,7 +88,7 @@ export default function Jugar() {
         </div>
       </Box>
       <div className="mt-4">
-        <Options isAdmin={isAdmin} room={room} />
+        <Options isAdmin={isAdmin} players={players} room={room} />
       </div>
     </Fragment>
   )

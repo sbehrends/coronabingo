@@ -17,14 +17,15 @@ import OptionTabPanel from '~/components/OptionTabPanel'
 import Pato from '~/components/Pato'
 import Restart from '~/components/Restart'
 import { EasterEggContext } from '~/contexts/EasterEggContext'
-import { Room } from '~/interfaces'
+import { Room, Player } from '~/interfaces'
 
 interface Props {
   isAdmin: boolean
+  players: Player[]
   room: Room
 }
 
-export default function Options({ isAdmin, room }: Props) {
+export default function Options({ isAdmin, players, room }: Props) {
   const { t } = useTranslation()
   const [currentTabIndex, setCurrentTabIndex] = useState(-1)
   const [times, setTimes] = useState(0)
@@ -126,7 +127,7 @@ export default function Options({ isAdmin, room }: Props) {
             title={t('playerId:winners.title')}
             onRequestClose={resetCurrentTabIndex}
           >
-            <Awards room={room} />
+            <Awards players={players} room={room} />
           </OptionTabPanel>
           <OptionTabPanel
             contentLabel={t('playerId:replay.reboot-game')}

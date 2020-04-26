@@ -20,8 +20,8 @@ export default function Collapsible({ children, id, label }: Props) {
       <label
         htmlFor={id}
         className={classnames([
-          'bg-gray-200 cursor-pointer block rounded w-full',
-          'focus-within:outline-none focus-within:shadow-outline',
+          'bg-gray-200 cursor-pointer block rounded-t w-full',
+          'focus-within:outline-none focus-within:shadow-inner',
           'duration-150 ease-in-out transition',
         ])}
       >
@@ -35,10 +35,8 @@ export default function Collapsible({ children, id, label }: Props) {
           <span className="flex-auto mr-4">{label}</span>
           {open ? <FiChevronUp /> : <FiChevronDown />}
         </div>
-        {open && (
-          <div className="bg-gray-100 px-4 py-2 rounded-b">{children}</div>
-        )}
       </label>
+      {open && <div className="bg-gray-100 p-4 rounded-b">{children}</div>}
     </Fragment>
   )
 }
